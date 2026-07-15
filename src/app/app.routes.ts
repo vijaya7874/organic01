@@ -4,12 +4,12 @@ export const routes: Routes = [
   {
     path: '',
     loadComponent: () => import('./pages/home/home').then((m) => m.Home),
-    title: 'MR Organics — Clean & Simple Plant Nutrition',
+    title: 'Wellora Origins — Clean & Simple Plant Nutrition',
   },
   {
     path: 'shop',
     loadComponent: () => import('./pages/shop/shop').then((m) => m.Shop),
-    title: 'Shop All Products — MR Organics',
+    title: 'Shop All Products — Wellora Origins',
   },
   {
     path: 'product/:slug',
@@ -18,12 +18,12 @@ export const routes: Routes = [
   {
     path: 'about',
     loadComponent: () => import('./pages/about/about').then((m) => m.About),
-    title: 'Our Story — MR Organics',
+    title: 'Our Story — Wellora Origins',
   },
   {
     path: 'contact',
     loadComponent: () => import('./pages/contact/contact').then((m) => m.Contact),
-    title: 'Contact — MR Organics',
+    title: 'Contact — Wellora Origins',
   },
   { path: '**', redirectTo: '' },
 ];

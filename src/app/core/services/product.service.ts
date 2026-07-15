@@ -1,7 +1,7 @@
 import { Injectable, signal, computed } from '@angular/core';
 import { Product } from '../models/product.model';
 
-/** Catalogue, prices, and infographic content for MR Organics. */
+/** Catalogue, prices, and infographic content for Wellora Origins. */
 @Injectable({ providedIn: 'root' })
 export class ProductService {
   private readonly _all = signal<Product[]>([
@@ -21,6 +21,7 @@ export class ProductService {
       badge: 'Best Seller',
       tone: '#3F7A4B',
       wash: '#EAF1E7',
+      image: 'images/moringapowder.png',
       emoji: '🌿',
       category: 'powder',
       infographic: {
@@ -62,6 +63,7 @@ export class ProductService {
       badge: null,
       tone: '#B8894A',
       wash: '#F3ECDD',
+      image: 'images/amla powder.png',
       emoji: '🟡',
       category: 'powder',
       infographic: {
@@ -102,6 +104,7 @@ export class ProductService {
       badge: 'Best Seller',
       tone: '#C56A3E',
       wash: '#F5E7DD',
+      image: 'images/abcpowder.png',
       emoji: '🥕',
       category: 'powder',
       infographic: {
@@ -142,6 +145,7 @@ export class ProductService {
       badge: 'New Arrival',
       tone: '#9C3D6B',
       wash: '#F1E3EC',
+      image: 'images/beetrootpowder.png',
       emoji: '🍠',
       category: 'powder',
       infographic: {
@@ -182,6 +186,7 @@ export class ProductService {
       badge: null,
       tone: '#8D6E4F',
       wash: '#EFE8DF',
+      image: 'images/ashwagandha.png',
       emoji: '🌰',
       category: 'powder',
       infographic: {
@@ -222,6 +227,7 @@ export class ProductService {
       badge: 'Spices',
       tone: '#C0392B',
       wash: '#F5E1DE',
+      image: 'images/chillipowder.png',
       emoji: '🌶️',
       category: 'spice',
       infographic: {
@@ -261,6 +267,7 @@ export class ProductService {
       badge: 'Combo',
       tone: '#9A5A5E',
       wash: '#F1E6E4',
+      image: 'images/abc+beetroot.png',
       emoji: '🎁',
       category: 'combo',
       infographic: {
@@ -300,6 +307,7 @@ export class ProductService {
       badge: 'Best Value',
       tone: '#3F7A4B',
       wash: '#EAF1E7',
+      image: 'images/comboof3.png',
       emoji: '🏆',
       category: 'combo',
       infographic: {
@@ -324,45 +332,7 @@ export class ProductService {
         { figure: '★', label: 'Best value' },
       ],
     },
-    {
-      id: 'combo-abc-moringa',
-      slug: 'abc-moringa-duo',
-      name: 'ABC + Moringa Duo',
-      title: 'ABC + Moringa Power Duo | 200g Each',
-      blurb: 'Sweet meets green — for anyone who wants moringa but has met moringa. Save ₹320.',
-      price: 878,
-      mrp: 1198,
-      weight: '200g each',
-      variants: ['200g each'],
-      rating: 4.7,
-      reviews: 63,
-      badge: 'Combo',
-      tone: '#6E8A3F',
-      wash: '#EDF0E2',
-      emoji: '⚡',
-      category: 'combo',
-      infographic: {
-        title: 'Sweet Meets Green',
-        lines: [
-          { figure: '2', label: 'Full-size jars' },
-          { figure: '₹320', label: 'You save' },
-          { figure: '✓', label: 'Free shipping' },
-        ],
-        footnote: 'The ABC carries the moringa',
-      },
-      about:
-        'Moringa is good for you and tastes like it. This is the fix: half a spoon of each in one glass, and the ABC carries the moringa.',
-      howToUse: [
-        'Half a spoon of each, in one glass.',
-        'Blend with water or milk.',
-        'A gentle way into a daily moringa habit.',
-      ],
-      facts: [
-        { figure: '2', label: 'Jars, 200g each' },
-        { figure: '₹320', label: 'Saved vs. separate' },
-        { figure: '✓', label: 'Ships free' },
-      ],
-    },
+
   ]);
 
   readonly all = this._all.asReadonly();

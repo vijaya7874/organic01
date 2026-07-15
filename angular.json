@@ -5,7 +5,11 @@
   "projects": {
     "mr-organics": {
       "projectType": "application",
-      "schematics": { "@schematics/angular:component": { "style": "scss" } },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -18,26 +22,49 @@
             "browser": "src/main.ts",
             "polyfills": [],
             "tsConfig": "tsconfig.app.json",
-            "assets": [{ "glob": "**/*", "input": "public" }],
-            "styles": ["src/styles.scss"]
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "public"
+              }
+            ],
+            "styles": [
+              "src/styles.scss"
+            ]
           },
           "configurations": {
             "production": {
               "budgets": [
-                { "type": "initial", "maximumWarning": "700kB", "maximumError": "1.5MB" },
-                { "type": "anyComponentStyle", "maximumWarning": "14kB", "maximumError": "28kB" }
+                {
+                  "type": "initial",
+                  "maximumWarning": "700kB",
+                  "maximumError": "1.5MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "14kB",
+                  "maximumError": "28kB"
+                }
               ],
               "outputHashing": "all"
             },
-            "development": { "optimization": false, "extractLicenses": false, "sourceMap": true }
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
           },
           "defaultConfiguration": "production"
         },
         "serve": {
           "builder": "@angular/build:dev-server",
           "configurations": {
-            "production": { "buildTarget": "mr-organics:build:production" },
-            "development": { "buildTarget": "mr-organics:build:development" }
+            "production": {
+              "buildTarget": "mr-organics:build:production"
+            },
+            "development": {
+              "buildTarget": "mr-organics:build:development"
+            }
           },
           "defaultConfiguration": "development"
         }

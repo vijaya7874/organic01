@@ -12,7 +12,7 @@ import { InfographicCard } from '../infographic/infographic';
  */
 @Component({
   selector: 'app-product-card',
-  imports: [RouterLink, DecimalPipe, Jar, InfographicCard],
+  imports: [RouterLink, DecimalPipe, InfographicCard],
   templateUrl: './product-card.html',
   styleUrl: './product-card.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

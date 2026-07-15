@@ -30,6 +30,7 @@ export interface Product {
   tone: string;
   /** Pale wash behind the jar. */
   wash: string;
+  image: string;
   emoji: string;
   category: 'powder' | 'spice' | 'combo';
   infographic: Infographic;

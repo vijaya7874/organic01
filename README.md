@@ -1,6 +1,6 @@
-# MR Organics
+# Wellora Origins
 
-A full multi-page e-commerce site for MR Organics — organic superfood powders
+A full multi-page e-commerce site for Wellora Origins — organic superfood powders
 from Guntur. Built in **Angular 20** with the muted forest-green identity
 (`#2E5A44`), Playfair Display headings, and the signature product-card
 image-swap (jar → nutritional infographic on hover).
@@ -21,7 +21,7 @@ npm start          # http://localhost:4200
 ## Global
 
 - **Announcement bar** — cycles through three messages, starting with free-shipping over ₹499.
-- **Header** — nav left, centered "MR Organics" logo with leaf, account + bag icons on the right. Transparent over content, frosts to glass on scroll; the bag pulses when the count changes.
+- **Header** — nav left, centered "Wellora Origins" logo with leaf, account + bag icons on the right. Transparent over content, frosts to glass on scroll; the bag pulses when the count changes.
 - **Cart drawer** — slides from the right, opens automatically on add. Live free-shipping progress bar against the ₹499 threshold, quantity controls, savings, and a checkout CTA.
 - **Footer** — five columns (Contact, Quick Links, Policy, Follow, Stay Connected with a newsletter input) and a horizontal rule.
 

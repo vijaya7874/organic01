@@ -35,7 +35,12 @@ export class ProductPage {
     { initialValue: '' }
   );
 
-  readonly product = computed(() => this.products.bySlug(this.slug()));
+  readonly product = computed(() => {
+    const p = this.products.bySlug(this.slug());
+    console.log(p);
+    return p;
+  });
+
   readonly related = computed(() => {
     const p = this.product();
     return p ? this.products.related(p.id, 4) : [];

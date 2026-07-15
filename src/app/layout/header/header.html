@@ -3,51 +3,38 @@
     <!-- Left: nav -->
     <nav class="hd__nav hd__nav--left" [class.is-open]="menuOpen()">
       @for (l of links; track l.path) {
-        <a
-          [routerLink]="l.path"
-          routerLinkActive="is-active"
-          [routerLinkActiveOptions]="{ exact: l.path === '/' }"
-          class="hd__link"
-          (click)="close()">{{ l.label }}</a>
+      <a [routerLink]="l.path" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: l.path === '/' }"
+        class="hd__link" (click)="close()">{{ l.label }}</a>
       }
     </nav>
 
     <!-- Center: logo -->
     <a routerLink="/" class="hd__logo" (click)="close()">
       <span class="hd__leaf" aria-hidden="true">🌱</span>
-      <span class="hd__word serif">MR Organics</span>
+      <span class="hd__word serif">Wellora Origins</span>
     </a>
 
     <!-- Right: actions -->
     <div class="hd__right">
       <button type="button" class="hd__icon" aria-label="Account">
         <svg viewBox="0 0 24 24" width="21" height="21" fill="none" aria-hidden="true">
-          <circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.6"/>
-          <path d="M4 20c1.5-4 5-6 8-6s6.5 2 8 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          <circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.6" />
+          <path d="M4 20c1.5-4 5-6 8-6s6.5 2 8 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
         </svg>
       </button>
 
-      <button
-        type="button"
-        class="hd__icon hd__bag"
-        [class.is-pulse]="pulse()"
-        (click)="cart.open.set(true)"
+      <button type="button" class="hd__icon hd__bag" [class.is-pulse]="pulse()" (click)="cart.open.set(true)"
         aria-label="Cart">
         <svg viewBox="0 0 24 24" width="21" height="21" fill="none" aria-hidden="true">
-          <path d="M6 8h12l-1 12H7L6 8Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
-          <path d="M9 8a3 3 0 0 1 6 0" stroke="currentColor" stroke-width="1.6"/>
+          <path d="M6 8h12l-1 12H7L6 8Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" />
+          <path d="M9 8a3 3 0 0 1 6 0" stroke="currentColor" stroke-width="1.6" />
         </svg>
         @if (cart.count(); as n) {
-          <span class="hd__count">{{ n }}</span>
+        <span class="hd__count">{{ n }}</span>
         }
       </button>
 
-      <button
-        type="button"
-        class="hd__burger"
-        [attr.aria-expanded]="menuOpen()"
-        aria-label="Menu"
-        (click)="toggle()">
+      <button type="button" class="hd__burger" [attr.aria-expanded]="menuOpen()" aria-label="Menu" (click)="toggle()">
         <span></span><span></span><span></span>
       </button>
     </div>

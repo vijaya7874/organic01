@@ -11,29 +11,32 @@
         <!-- Form -->
         <div class="form" appReveal>
           @if (sent()) {
-            <div class="form__done">
-              <span class="form__tick">✓</span>
-              <h3>Message sent</h3>
-              <p>Thanks for reaching out — we’ll reply within a day.</p>
-            </div>
+          <div class="form__done">
+            <span class="form__tick">✓</span>
+            <h3>Message sent</h3>
+            <p>Thanks for reaching out — we’ll reply within a day.</p>
+          </div>
           } @else {
-            <div class="field">
-              <label for="name">Full name</label>
-              <input id="name" type="text" [ngModel]="name()" (ngModelChange)="name.set($event)" placeholder="Your name" />
-            </div>
-            <div class="field">
-              <label for="email">Email address</label>
-              <input id="email" type="email" [ngModel]="email()" (ngModelChange)="email.set($event)" placeholder="name@email.com" />
-            </div>
-            <div class="field">
-              <label for="phone">Phone number</label>
-              <input id="phone" type="tel" [ngModel]="phone()" (ngModelChange)="phone.set($event)" placeholder="+91 …" />
-            </div>
-            <div class="field">
-              <label for="msg">Message</label>
-              <textarea id="msg" rows="4" [ngModel]="message()" (ngModelChange)="message.set($event)" placeholder="How can we help?"></textarea>
-            </div>
-            <button type="button" class="btn btn--block" (click)="submit()">Send message</button>
+          <div class="field">
+            <label for="name">Full name</label>
+            <input id="name" type="text" [ngModel]="name()" (ngModelChange)="name.set($event)"
+              placeholder="Your name" />
+          </div>
+          <div class="field">
+            <label for="email">Email address</label>
+            <input id="email" type="email" [ngModel]="email()" (ngModelChange)="email.set($event)"
+              placeholder="name@email.com" />
+          </div>
+          <div class="field">
+            <label for="phone">Phone number</label>
+            <input id="phone" type="tel" [ngModel]="phone()" (ngModelChange)="phone.set($event)" placeholder="+91 …" />
+          </div>
+          <div class="field">
+            <label for="msg">Message</label>
+            <textarea id="msg" rows="4" [ngModel]="message()" (ngModelChange)="message.set($event)"
+              placeholder="How can we help?"></textarea>
+          </div>
+          <button type="button" class="btn btn--block" (click)="submit()">Send message</button>
           }
         </div>
 
@@ -46,13 +49,13 @@
 
           <article class="gcard gcard--addr" appReveal [revealDelay]="120">
             <span class="gcard__k">Address</span>
-            <p class="gcard__v">4-108, Tallacheruvu, Atchampet, Guntur, Andhra Pradesh – 522409</p>
+            <p class="gcard__v">Guntur, Andhra Pradesh – 522409</p>
           </article>
 
           <article class="gcard gcard--info" appReveal [revealDelay]="180">
             <span class="gcard__k">Reach us</span>
             <a href="mailto:mrorganics.co@gmail.com" class="gcard__v gcard__link">mrorganics.co&#64;gmail.com</a>
-            <a href="tel:+918686228955" class="gcard__v gcard__link">+91 86862 28955</a>
+            <a href="tel:+918686228955" class="gcard__v gcard__link">+91 90143 02248</a>
           </article>
 
           <article class="gcard gcard--team" appReveal [revealDelay]="240">
