@@ -1,0 +1,254 @@
+.scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 95;
+  background: rgba(28, 43, 36, 0.4);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s var(--ease);
+
+  &.is-open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+.drawer {
+  position: fixed;
+  inset: 0 0 0 auto;
+  z-index: 100;
+  width: min(440px, 100%);
+  display: flex;
+  flex-direction: column;
+  background: var(--cream);
+  box-shadow: -30px 0 80px -40px rgba(28, 43, 36, 0.5);
+  transform: translateX(100%);
+  transition: transform 0.55s var(--ease);
+
+  &.is-open {
+    transform: none;
+  }
+
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 1.75rem;
+    border-bottom: 1px solid var(--line);
+  }
+
+  &__title {
+    font-size: 1.4rem;
+  }
+
+  &__n {
+    color: var(--ink-faint);
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+  }
+
+  &__x {
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    color: var(--charcoal);
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    cursor: pointer;
+
+    &:hover {
+      background: var(--mint);
+    }
+  }
+
+  &__foot {
+    margin-top: auto;
+    padding: 1.5rem 1.75rem 1.75rem;
+    border-top: 1px solid var(--line);
+    background: var(--white);
+  }
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.6rem;
+    font-size: 0.95rem;
+
+    &--save {
+      color: var(--green);
+      font-weight: 600;
+    }
+
+    &--total {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 1.25rem;
+    }
+  }
+
+  &__go {
+    margin-bottom: 0.75rem;
+  }
+
+  &__keep {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    background: none;
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+      color: var(--green);
+    }
+  }
+}
+
+/* Free shipping */
+.ship {
+  padding: 1.1rem 1.75rem;
+  border-bottom: 1px solid var(--line);
+  background: var(--mint);
+  transition: background 0.4s var(--ease);
+
+  &.is-done {
+    background: var(--mint-deep);
+  }
+
+  &__label {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--green-deep);
+    margin-bottom: 0.5rem;
+  }
+
+  &__track {
+    height: 6px;
+    background: rgba(46, 90, 68, 0.15);
+    border-radius: var(--radius-pill);
+    overflow: hidden;
+  }
+
+  &__fill {
+    height: 100%;
+    background: var(--green);
+    border-radius: var(--radius-pill);
+    transition: width 0.5s var(--ease);
+  }
+}
+
+/* Items */
+.items {
+  list-style: none;
+  flex: 1;
+  overflow-y: auto;
+  padding: 0.5rem 1.75rem;
+}
+
+.item {
+  display: grid;
+  grid-template-columns: 60px 1fr auto;
+  gap: 1rem;
+  align-items: start;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--line);
+
+  &__jar {
+    width: 60px;
+    height: 60px;
+    display: grid;
+    place-items: center;
+    border-radius: var(--radius);
+    padding: 0.35rem;
+  }
+
+  &__name {
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+
+  &__variant {
+    font-size: 0.78rem;
+    color: var(--ink-faint);
+    margin-bottom: 0.6rem;
+  }
+
+  &__end {
+    text-align: right;
+  }
+
+  &__price {
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+  }
+
+  &__drop {
+    font-size: 0.74rem;
+    color: var(--ink-faint);
+    background: none;
+    border: none;
+    border-bottom: 1px solid var(--line);
+    padding: 0 0 1px;
+    cursor: pointer;
+
+    &:hover {
+      color: var(--green);
+      border-color: var(--green);
+    }
+  }
+}
+
+.qty {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-pill);
+  padding: 0.2rem 0.6rem;
+  background: var(--white);
+
+  button {
+    background: none;
+    border: none;
+    color: var(--ink-soft);
+    font-size: 1rem;
+    cursor: pointer;
+    line-height: 1;
+
+    &:hover {
+      color: var(--green);
+    }
+  }
+
+  span {
+    font-size: 0.85rem;
+    min-width: 1ch;
+    text-align: center;
+  }
+}
+
+/* Empty */
+.empty {
+  flex: 1;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 1.25rem;
+  padding: 2rem;
+
+  &__jar {
+    width: 90px;
+    opacity: 0.6;
+  }
+
+  &__p {
+    color: var(--ink-soft);
+  }
+}

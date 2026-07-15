@@ -1,0 +1,11 @@
+.jar {
+  width: 100%;
+  height: auto;
+  display: block;
+  overflow: visible;
+
+  rect,
+  path {
+    transition: y 0.7s var(--ease), height 0.7s var(--ease), d 0.7s var(--ease);
+  }
+}

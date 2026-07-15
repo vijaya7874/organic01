@@ -1,0 +1,70 @@
+<div class="route-fade">
+  <!-- Hero banner -->
+  <section class="ab-hero">
+    <div class="ab-hero__scene" aria-hidden="true">
+      <span class="ab-hero__sky"></span>
+      <span class="ab-hero__ground"></span>
+      <span class="ab-hero__tree" style="left:12%">🌴</span>
+      <span class="ab-hero__tree" style="left:30%">🥥</span>
+      <span class="ab-hero__tree" style="left:52%">🌴</span>
+      <span class="ab-hero__tree" style="left:74%">🥥</span>
+      <span class="ab-hero__tree" style="left:88%">🌴</span>
+    </div>
+    <div class="ab-hero__overlay">
+      <h1 class="ab-hero__title">Our Story</h1>
+    </div>
+  </section>
+
+  <!-- Narrative -->
+  <section class="narr pad">
+    <div class="shell narr__inner">
+      <p class="eyebrow" appReveal>Where it began</p>
+      <h2 class="narr__lead serif" appReveal [revealDelay]="80">
+        We grew up in Guntur, surrounded by fields that fed us before they ever fed a business.
+      </h2>
+      <div class="narr__cols">
+        <p appReveal [revealDelay]="120">
+          Long before MR Organics had a name, we knew the smell of drying chilli on the
+          wind and the colour of moringa freshly ground. Agriculture was not something we
+          studied — it was the ground under our feet, the rhythm of every season.
+        </p>
+        <p appReveal [revealDelay]="200">
+          When we moved to the city, the food changed. Powders were bulked out, colours
+          were added, and prices climbed for things that no longer tasted of the plant.
+          So we went back to the farms we grew up around and started buying direct —
+          small, honest, and unadulterated — to bring those authentic superfoods into
+          modern kitchens across India.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Founders -->
+  <section class="founders pad">
+    <div class="shell">
+      <header class="head head--center" appReveal>
+        <p class="eyebrow">The people behind it</p>
+        <h2 class="head__title">Our founders</h2>
+      </header>
+
+      <div class="founders__grid">
+        @for (f of founders; track f.name; let i = $index) {
+          <article class="fdr" appReveal [revealDelay]="i * 120">
+            <div class="fdr__avatar">{{ f.initials }}</div>
+            <blockquote class="fdr__quote serif">“{{ f.quote }}”</blockquote>
+            <p class="fdr__name">{{ f.name }}</p>
+            <p class="fdr__role">{{ f.role }}</p>
+          </article>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="ab-cta">
+    <div class="shell ab-cta__inner" appReveal>
+      <h2 class="ab-cta__title serif">Taste the difference honesty makes</h2>
+      <a routerLink="/shop" class="btn btn--light">Shop our superfoods</a>
+    </div>
+  </section>
+</div>

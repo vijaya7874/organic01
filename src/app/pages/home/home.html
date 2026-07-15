@@ -1,0 +1,112 @@
+<div class="route-fade">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero__bg" aria-hidden="true">
+      <span class="hero__orb hero__orb--1"></span>
+      <span class="hero__orb hero__orb--2"></span>
+      <span class="hero__foliage hero__foliage--l">🌿</span>
+      <span class="hero__foliage hero__foliage--r">🍃</span>
+    </div>
+
+    <div class="shell hero__inner">
+      <p class="eyebrow hero__eyebrow">From our farm to your family</p>
+      <h1 class="hero__title">Clean &amp; simple<br />plant nutrition</h1>
+      <p class="hero__lede">
+        From our farming roots to your family’s wellness — pure, trusted, and
+        affordable superfoods for everyday living.
+      </p>
+      <div class="hero__acts">
+        <a routerLink="/shop" class="btn">Shop our superfoods</a>
+        <a routerLink="/about" class="btn btn--ghost">Our story</a>
+      </div>
+
+      <div class="hero__proof">
+        <span class="stars">★★★★★</span>
+        <span>Trusted by 10,000+ households across India</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- BEST SELLERS -->
+  <section class="best pad">
+    <div class="shell">
+      <header class="head head--center" appReveal>
+        <p class="eyebrow">Loved most</p>
+        <h2 class="head__title">Featured best sellers</h2>
+        <p class="head__sub">The three our customers reach for again and again.</p>
+      </header>
+
+      <div class="best__grid">
+        @for (p of bestSellers; track p.id; let i = $index) {
+          <div appReveal [revealDelay]="i * 120">
+            <app-product-card [product]="p" />
+          </div>
+        }
+      </div>
+
+      <div class="best__more" appReveal>
+        <a routerLink="/shop" class="btn btn--ghost">View all products</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE US -->
+  <section class="why pad">
+    <div class="shell">
+      <header class="head head--center" appReveal>
+        <p class="eyebrow">Why choose us</p>
+        <h2 class="head__title">Honest by design</h2>
+      </header>
+
+      <div class="why__grid">
+        @for (v of values; track v.title; let i = $index) {
+          <article class="value" appReveal [revealDelay]="i * 100">
+            <span class="value__icon">
+              <svg viewBox="0 0 24 24" width="26" height="26" fill="none" aria-hidden="true">
+                <path [attr.d]="path(v.icon)" stroke="currentColor" stroke-width="1.6"
+                  stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </span>
+            <h3 class="value__title">{{ v.title }}</h3>
+            <p class="value__body">{{ v.body }}</p>
+          </article>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR STORY PREVIEW -->
+  <section class="story pad">
+    <div class="shell story__grid">
+      <div class="story__visual" appReveal>
+        <div class="story__scene" aria-hidden="true">
+          <span class="story__sky"></span>
+          <span class="story__field"></span>
+          <span class="story__tree" style="left:18%">🌴</span>
+          <span class="story__tree" style="left:40%">🌴</span>
+          <span class="story__tree" style="left:64%">🌴</span>
+          <span class="story__sun">☀️</span>
+        </div>
+        <div class="story__tag">
+          <span class="story__tagnum">Since our roots</span>
+          <span class="story__taglabel">Grown in Guntur, Andhra Pradesh</span>
+        </div>
+      </div>
+
+      <div class="story__text" appReveal [revealDelay]="120">
+        <p class="eyebrow">Our story</p>
+        <h2 class="story__title">Rooted in real farming</h2>
+        <p class="story__p">
+          We grew up in the fields of Guntur, where farming is a way of life, not a
+          job. MR Organics began as a way to bring those same authentic superfoods —
+          grown honestly, processed gently — into modern kitchens across India.
+        </p>
+        <p class="story__p">
+          Every jar names a single plant, and then it stops. Nothing added, because
+          there is nothing we would want to add.
+        </p>
+        <a routerLink="/about" class="btn">Read our story</a>
+      </div>
+    </div>
+  </section>
+</div>

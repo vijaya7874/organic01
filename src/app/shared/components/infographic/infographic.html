@@ -1,0 +1,19 @@
+<div class="info" [style.--tone]="tone()">
+  <div class="info__head">
+    <span class="info__leaf" aria-hidden="true">🌿</span>
+    <p class="info__title serif">{{ data().title }}</p>
+  </div>
+
+  <ul class="info__lines">
+    @for (line of data().lines; track line.label) {
+      <li class="info__line">
+        <span class="info__figure">{{ line.figure }}</span>
+        <span class="info__label">{{ line.label }}</span>
+      </li>
+    }
+  </ul>
+
+  @if (data().footnote) {
+    <p class="info__foot">{{ data().footnote }}</p>
+  }
+</div>

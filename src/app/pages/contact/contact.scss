@@ -1,0 +1,153 @@
+.ct {
+  padding-top: 3rem;
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: start;
+  }
+}
+
+/* Form */
+.form {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem;
+  box-shadow: var(--shadow);
+  display: grid;
+  gap: 1.25rem;
+
+  &__done {
+    text-align: center;
+    display: grid;
+    gap: 0.5rem;
+    justify-items: center;
+    padding: 2rem 0;
+  }
+
+  &__tick {
+    display: grid;
+    place-items: center;
+    width: 56px;
+    height: 56px;
+    font-size: 1.5rem;
+    color: var(--white);
+    background: var(--green);
+    border-radius: 50%;
+  }
+}
+
+.field {
+  display: grid;
+  gap: 0.4rem;
+
+  label {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--charcoal);
+  }
+
+  input,
+  textarea {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.92rem;
+    color: var(--charcoal);
+    background: var(--cream);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 0.8rem 1rem;
+    resize: vertical;
+    box-shadow: inset 0 2px 6px -4px rgba(28, 43, 36, 0.2);
+    transition: border-color 0.3s var(--ease);
+
+    &:focus-visible {
+      outline: none;
+      border-color: var(--green);
+    }
+  }
+}
+
+/* Cards */
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.gcard {
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  display: grid;
+  gap: 0.5rem;
+  align-content: start;
+  min-height: 160px;
+
+  &__k {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0.7;
+  }
+
+  &__v {
+    font-size: 0.98rem;
+    line-height: 1.5;
+  }
+
+  &__link {
+    text-decoration: none;
+    font-weight: 500;
+
+    &:hover { text-decoration: underline; }
+  }
+
+  &--hours {
+    background: var(--green);
+    color: var(--white);
+
+    .gcard__v { font-family: 'Playfair Display', serif; font-size: 1.3rem; }
+  }
+
+  &--addr {
+    background: var(--pink);
+    color: var(--charcoal);
+  }
+
+  &--info {
+    background: var(--mint);
+    color: var(--green-deep);
+  }
+
+  &--team {
+    background: var(--sand);
+    text-align: center;
+    justify-items: center;
+    align-content: center;
+  }
+
+  &__avatar {
+    display: grid;
+    place-items: center;
+    width: 64px;
+    height: 64px;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--white);
+    background: var(--green);
+    border-radius: 50%;
+    margin-bottom: 0.5rem;
+  }
+
+  &__name { font-weight: 600; }
+  &__role { font-size: 0.82rem; color: var(--ink-faint); }
+}
+
+@media (max-width: 860px) {
+  .ct__grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+  .cards { grid-template-columns: 1fr; }
+}

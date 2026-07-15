@@ -1,0 +1,179 @@
+.pc {
+  --tone: var(--green);
+
+  &__link {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    text-decoration: none;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.45s var(--ease), box-shadow 0.45s var(--ease),
+      border-color 0.45s var(--ease);
+
+    &:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+      border-color: color-mix(in oklab, var(--tone) 30%, var(--line));
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--green);
+      outline-offset: 3px;
+    }
+  }
+
+  /* Swap stage */
+  &__stage {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+  }
+
+  &__face {
+    position: absolute;
+    inset: 0;
+    transition: opacity 0.45s var(--ease), transform 0.55s var(--ease);
+
+    &--jar {
+      display: grid;
+      place-items: center;
+      padding: 1.75rem;
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    &--info {
+      padding: 1rem;
+      opacity: 0;
+      transform: scale(1.04);
+      pointer-events: none;
+    }
+  }
+
+  &__link:hover &__face--jar {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+
+  &__link:hover &__face--info {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  &__badge,
+  &__off {
+    position: absolute;
+    top: 0.9rem;
+    z-index: 3;
+    font-size: 0.66rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 0.32rem 0.65rem;
+    border-radius: var(--radius-pill);
+  }
+
+  &__badge {
+    left: 0.9rem;
+    color: var(--green-deep);
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(4px);
+  }
+
+  &__off {
+    right: 0.9rem;
+    color: var(--white);
+    background: var(--tone);
+  }
+
+  /* Meta */
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    padding: 1.25rem 1.35rem 1.4rem;
+    flex: 1;
+  }
+
+  &__rate {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+  }
+
+  &__rnum {
+    font-size: 0.76rem;
+    color: var(--ink-faint);
+  }
+
+  &__name {
+    font-size: 1.2rem;
+    margin-top: 0.15rem;
+  }
+
+  &__weight {
+    font-size: 0.82rem;
+    color: var(--ink-faint);
+  }
+
+  &__foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: auto;
+    padding-top: 1rem;
+  }
+
+  &__now {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 600;
+    font-size: 1.3rem;
+    color: var(--green-deep);
+  }
+
+  &__mrp {
+    font-size: 0.85rem;
+    color: var(--ink-faint);
+    text-decoration: line-through;
+    margin-left: 0.4rem;
+  }
+
+  &__add {
+    display: grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    color: var(--white);
+    background: var(--green);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s var(--ease), transform 0.3s var(--spring);
+
+    &:hover {
+      background: var(--green-deep);
+      transform: scale(1.1) rotate(90deg);
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--green-deep);
+      outline-offset: 2px;
+    }
+  }
+}
+
+/* On touch devices, show the infographic below rather than on hover */
+@media (hover: none) {
+  .pc__face--info {
+    display: none;
+  }
+}

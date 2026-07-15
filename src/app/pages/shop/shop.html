@@ -1,0 +1,33 @@
+<div class="route-fade">
+  <section class="shop pad">
+    <div class="shell">
+      <header class="shop__head">
+        <div>
+          <p class="eyebrow">The full range</p>
+          <h1 class="shop__title">All Products</h1>
+          <p class="shop__count">{{ list().length }} products</p>
+        </div>
+
+        <label class="sortbox">
+          <span class="sortbox__label">Sort by</span>
+          <select
+            class="sortbox__select"
+            [value]="sort()"
+            (change)="onSort($any($event.target).value)">
+            @for (s of sorts; track s.id) {
+              <option [value]="s.id">{{ s.label }}</option>
+            }
+          </select>
+        </label>
+      </header>
+
+      <div class="shop__grid">
+        @for (p of list(); track p.id; let i = $index) {
+          <div appReveal [revealDelay]="(i % 3) * 100">
+            <app-product-card [product]="p" />
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+</div>

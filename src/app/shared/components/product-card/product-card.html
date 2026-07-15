@@ -1,0 +1,49 @@
+<article class="pc" [style.--tone]="product().tone">
+  <a class="pc__link" [routerLink]="['/product', product().slug]">
+    <!-- Image-swap stage -->
+    <div class="pc__stage" [style.background]="product().wash">
+      @if (product().badge) {
+        <span class="pc__badge">{{ product().badge }}</span>
+      }
+      @if (off()) {
+        <span class="pc__off">−{{ off() }}%</span>
+      }
+
+      <!-- Default: the jar -->
+      <div class="pc__face pc__face--jar">
+        <app-jar [tone]="product().tone" [fill]="0.72" [key]="product().id" />
+      </div>
+
+      <!-- Hover: the infographic -->
+      <div class="pc__face pc__face--info">
+        <app-infographic [data]="product().infographic" [tone]="product().tone" />
+      </div>
+    </div>
+
+    <!-- Meta -->
+    <div class="pc__body">
+      <div class="pc__rate">
+        <span class="stars">★★★★★</span>
+        <span class="pc__rnum">{{ product().rating }} ({{ product().reviews }})</span>
+      </div>
+
+      <h3 class="pc__name">{{ product().name }}</h3>
+      <p class="pc__weight">{{ product().weight }}</p>
+
+      <div class="pc__foot">
+        <div class="pc__price">
+          <span class="pc__now">₹{{ product().price | number: '1.0-2' }}</span>
+          @if (product().mrp > product().price) {
+            <span class="pc__mrp">₹{{ product().mrp | number: '1.0-0' }}</span>
+          }
+        </div>
+
+        <button type="button" class="pc__add" (click)="add($event)" aria-label="Add to cart">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true">
+            <path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </a>
+</article>

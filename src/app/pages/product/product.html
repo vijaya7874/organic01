@@ -1,0 +1,178 @@
+<div class="route-fade">
+  @if (product(); as p) {
+    <section class="pd" [style.--tone]="p.tone">
+      <!-- Breadcrumb -->
+      <nav class="shell crumb" aria-label="Breadcrumb">
+        <a routerLink="/">Home</a>
+        <span aria-hidden="true">/</span>
+        <a routerLink="/shop">Shop</a>
+        <span aria-hidden="true">/</span>
+        <span class="crumb__here">{{ p.name }}</span>
+      </nav>
+
+      <div class="shell pd__grid">
+        <!-- LEFT: gallery -->
+        <div class="gallery">
+          <div class="gallery__thumbs">
+            @for (v of views; track v.id) {
+              <button
+                type="button"
+                class="thumb"
+                [class.is-on]="view() === v.id"
+                (click)="view.set(v.id)"
+                [attr.aria-label]="v.label">
+                @switch (v.id) {
+                  @case ('jar') { <span class="thumb__mini"><app-jar [tone]="p.tone" [fill]="0.72" key="thumb-jar" /></span> }
+                  @case ('facts') { <span class="thumb__icon">📊</span> }
+                  @case ('info') { <span class="thumb__icon">🌿</span> }
+                  @case ('use') { <span class="thumb__icon">🥄</span> }
+                }
+              </button>
+            }
+          </div>
+
+          <div class="gallery__main" [style.background]="p.wash">
+            @if (p.badge) { <span class="gallery__badge">{{ p.badge }}</span> }
+
+            @switch (view()) {
+              @case ('jar') {
+                <div class="gallery__jar"><app-jar [tone]="p.tone" [fill]="0.74" key="main-jar" /></div>
+              }
+              @case ('facts') {
+                <div class="gallery__panel">
+                  <h3 class="gallery__panelh serif">Nutrition, gram for gram</h3>
+                  <ul class="factlist">
+                    @for (f of p.facts; track f.label) {
+                      <li><span class="factlist__fig">{{ f.figure }}</span><span>{{ f.label }}</span></li>
+                    }
+                  </ul>
+                </div>
+              }
+              @case ('info') {
+                <div class="gallery__info"><app-infographic [data]="p.infographic" [tone]="p.tone" /></div>
+              }
+              @case ('use') {
+                <div class="gallery__panel">
+                  <h3 class="gallery__panelh serif">How to use</h3>
+                  <ol class="uselist">
+                    @for (u of p.howToUse; track u) { <li>{{ u }}</li> }
+                  </ol>
+                </div>
+              }
+            }
+          </div>
+        </div>
+
+        <!-- RIGHT: buy box -->
+        <div class="buy">
+          <h1 class="buy__title">{{ p.title }}</h1>
+
+          <div class="buy__rate">
+            <span class="stars">★★★★★</span>
+            <span class="buy__rnum">{{ p.rating }} · {{ p.reviews }} reviews</span>
+          </div>
+
+          <div class="buy__price">
+            <span class="buy__now">₹{{ p.price | number: '1.0-2' }}</span>
+            @if (p.mrp > p.price) {
+              <span class="buy__mrp">₹{{ p.mrp | number: '1.0-0' }}</span>
+              <span class="buy__off">−{{ off() }}%</span>
+            }
+          </div>
+
+          <p class="buy__promo">🎁 Buy 2 get 15% off</p>
+
+          <p class="buy__blurb">{{ p.blurb }}</p>
+
+          <!-- Variant -->
+          @if (p.variants.length > 1) {
+            <div class="opt">
+              <p class="opt__label">Size</p>
+              <div class="opt__row">
+                @for (v of p.variants; track v) {
+                  <button
+                    type="button"
+                    class="opt__btn"
+                    [class.is-on]="activeVariant() === v"
+                    (click)="variant.set(v)">{{ v }}</button>
+                }
+              </div>
+            </div>
+          }
+
+          <!-- Quantity + actions -->
+          <div class="buy__actions">
+            <div class="stepper">
+              <button type="button" (click)="fewer()" aria-label="Decrease">−</button>
+              <span>{{ qty() }}</span>
+              <button type="button" (click)="more()" aria-label="Increase">+</button>
+            </div>
+            <button type="button" class="btn btn--block" (click)="addToCart(p)">Add to Cart</button>
+          </div>
+
+          <button type="button" class="btn btn--ghost btn--block buy__now" (click)="addToCart(p)">
+            Buy Now
+          </button>
+
+          <!-- Accordion -->
+          <div class="acc">
+            <div class="acc__item">
+              <button type="button" class="acc__head" (click)="toggleTab('details')" [attr.aria-expanded]="openTab() === 'details'">
+                Product Details <span class="acc__sign">{{ openTab() === 'details' ? '−' : '+' }}</span>
+              </button>
+              @if (openTab() === 'details') {
+                <div class="acc__body">
+                  <p>{{ p.about }}</p>
+                  <ul class="acc__facts">
+                    @for (f of p.facts; track f.label) {
+                      <li><strong>{{ f.figure }}</strong> {{ f.label }}</li>
+                    }
+                  </ul>
+                </div>
+              }
+            </div>
+
+            <div class="acc__item">
+              <button type="button" class="acc__head" (click)="toggleTab('use')" [attr.aria-expanded]="openTab() === 'use'">
+                How to Use <span class="acc__sign">{{ openTab() === 'use' ? '−' : '+' }}</span>
+              </button>
+              @if (openTab() === 'use') {
+                <div class="acc__body">
+                  <ol class="acc__steps">
+                    @for (u of p.howToUse; track u) { <li>{{ u }}</li> }
+                  </ol>
+                </div>
+              }
+            </div>
+
+            <div class="acc__item">
+              <button type="button" class="acc__head" (click)="toggleTab('delivery')" [attr.aria-expanded]="openTab() === 'delivery'">
+                Delivery &amp; Return Policy <span class="acc__sign">{{ openTab() === 'delivery' ? '−' : '+' }}</span>
+              </button>
+              @if (openTab() === 'delivery') {
+                <div class="acc__body">
+                  <p>Free shipping across India on orders above ₹499. Dispatched within 24 hours, delivered in 3–6 working days. Unopened items can be returned within 7 days.</p>
+                </div>
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related -->
+      <div class="shell rel">
+        <h2 class="rel__title">You might also like</h2>
+        <div class="rel__row">
+          @for (r of related(); track r.id) {
+            <app-product-card [product]="r" />
+          }
+        </div>
+      </div>
+    </section>
+  } @else {
+    <section class="shell missing">
+      <h1>We don’t make that one.</h1>
+      <a routerLink="/shop" class="btn">Back to shop</a>
+    </section>
+  }
+</div>
